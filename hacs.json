@@ -1,0 +1,6 @@
+{
+  "name": "360 Robot Vacuum",
+  "country": ["CN"],
+  "zip_release": false,
+  "homeassistant": "2024.1.0"
+}

@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "360 扫地机器人",
+        "description": "请输入 360 账号的 qid 和 sid。通过抓包 360 智能管家 App（请求域名 q.smart.360.cn）获取，只需提取一次。",
+        "data": {
+          "qid": "账号 ID (qid)",
+          "sid": "会话 ID (sid，32 位十六进制)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "重新认证 360 扫地机",
+        "description": "账号 {qid} 的会话已过期。请重新从 360 App 抓包获取新的 sid 并输入。",
+        "data": {
+          "sid": "新的会话 ID (sid)"
+        }
+      }
+    },
+    "error": {
+      "invalid_qid": "qid 必须是纯数字账号 ID（6-20 位）。",
+      "invalid_sid": "sid 必须是 32 位十六进制字符串。",
+      "invalid_auth": "360 云拒绝了该 qid/sid，请重新从 App 抓包获取。",
+      "cannot_connect": "无法连接 360 云，请检查网络后重试。",
+      "no_devices": "该账号下未找到扫地机器人。"
+    },
+    "abort": {
+      "already_configured": "该 360 账号 (qid) 已配置。"
+    }
+  }
+}

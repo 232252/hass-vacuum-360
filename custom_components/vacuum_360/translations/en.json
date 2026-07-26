@@ -1,0 +1,31 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "360 Robot Vacuum",
+        "description": "Enter the qid and sid from your 360 account. Extract them once from the 360 Smart Home app via packet capture (look for requests to q.smart.360.cn).",
+        "data": {
+          "qid": "Account ID (qid)",
+          "sid": "Session ID (sid, 32 hex chars)"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate 360 Vacuum",
+        "description": "The session for qid {qid} has expired. Capture a fresh sid from the 360 app and enter it below.",
+        "data": {
+          "sid": "New Session ID (sid)"
+        }
+      }
+    },
+    "error": {
+      "invalid_qid": "The qid must be a numeric account ID (6-20 digits).",
+      "invalid_sid": "The sid must be a 32-character hexadecimal string.",
+      "invalid_auth": "The qid/sid were rejected by the 360 cloud. Re-capture them from the app.",
+      "cannot_connect": "Could not reach the 360 cloud. Check your network and try again.",
+      "no_devices": "No vacuums were found on this account."
+    },
+    "abort": {
+      "already_configured": "This 360 account (qid) is already configured."
+    }
+  }
+}

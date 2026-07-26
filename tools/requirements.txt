@@ -1,0 +1,11 @@
+# get_sid.py 的依赖（renew_sid.py 和 HA 集成本体不需要这些）
+# 安装：pip3 install -r tools/requirements.txt
+
+# OpenCV：验证码缺口识别（Canny 边缘 + 模板匹配）
+opencv-python>=4.8.0
+
+# websockets：连接 chromium 的 CDP（Chrome DevTools Protocol）
+websockets>=12.0
+
+# numpy：图像数组处理（opencv-python 会自动装，这里显式声明）
+numpy>=1.24.0

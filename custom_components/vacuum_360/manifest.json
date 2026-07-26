@@ -1,0 +1,11 @@
+{
+  "domain": "vacuum_360",
+  "name": "360 Robot Vacuum",
+  "version": "1.0.0",
+  "config_flow": true,
+  "documentation": "https://github.com/232252/hass-vacuum-360",
+  "issue_tracker": "https://github.com/232252/hass-vacuum-360/issues",
+  "codeowners": ["@232252"],
+  "iot_class": "cloud_polling",
+  "integration_type": "hub"
+}
