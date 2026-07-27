@@ -76,5 +76,10 @@ class Robot360Coordinator(DataUpdateCoordinator[dict[str, Any]]):
             raise ConfigEntryAuthFailed(str(exc)) from exc
         except Vacuum360Error as exc:
             raise UpdateFailed(str(exc)) from exc
+        except Exception as exc:
+            # Any unexpected error (e.g. RuntimeError from a torn-down session
+            # that slipped through) should become UpdateFailed so HA retries
+            # on the next poll instead of crashing the coordinator.
+            raise UpdateFailed(f"unexpected error: {exc}") from exc
 
         return _merge_status(self.device_meta, status)

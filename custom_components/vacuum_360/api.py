@@ -147,6 +147,14 @@ class Robot360CloudAPI:
             raise Vacuum360ConnectionError("request timed out") from exc
         except aiohttp.ClientError as exc:
             raise Vacuum360ConnectionError(f"network error: {exc}") from exc
+        except RuntimeError as exc:
+            # aiohttp raises RuntimeError("Session is closed") when the shared
+            # HA ClientSession is torn down (e.g. during/after a restart or
+            # network stack reload). Treat as transient so HA retries on the
+            # next poll instead of leaving the entity permanently unavailable.
+            if "closed" in str(exc).lower():
+                raise Vacuum360ConnectionError(f"session closed: {exc}") from exc
+            raise  # unexpected RuntimeError, re-raise as-is
 
         if not isinstance(result, dict):
             raise Vacuum360ApiError(f"unexpected payload type: {type(result)!r}")
